@@ -1,0 +1,11 @@
+
+_
+java:S4488B"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(°œ¿`
+`
+java:S4488S"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(€ÀèÐ
+f
+java:S1192"PDefine a constant instead of duplicating this literal "redirect:/login" 4 times.(ØÆŠú
+h
+java:S1192%"MDefine a constant instead of duplicating this literal "shoppingCart" 4 times.(ÀÊ¿Ýûÿÿÿÿ
+_
+java:S2259&"BA "NullPointerException" could be thrown; "cart" is nullable here.(°à°ó8ªÀËŒ‡0

@@ -33,9 +33,12 @@ public class ShoppingCartController {
             ShoppingCart cart = customer.getCart();
             if(cart == null){
                 model.addAttribute("check" );
+
+            }
+            if(cart != null){
+                model.addAttribute("grandTotal", cart.getTotalPrice());
             }
             model.addAttribute("shoppingCart", cart);
-            model.addAttribute("grandTotal", cart.getTotalPrice());
             model.addAttribute("title", "Cart");
             return "cart";
         }

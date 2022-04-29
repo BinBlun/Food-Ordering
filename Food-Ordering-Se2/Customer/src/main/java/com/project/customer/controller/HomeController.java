@@ -27,7 +27,7 @@ public class HomeController {
             session.setAttribute("username", customer.getFirstName() + " " + customer.getLastName());
             ShoppingCart shoppingCart = customer.getCart();
             if(shoppingCart != null){
-                session.setAttribute("totalItem", shoppingCart.getTotalItems() );
+                session.setAttribute("totalItems", shoppingCart.getTotalItems() );
             }
         }
         return "home";

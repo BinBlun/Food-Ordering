@@ -227,6 +227,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         for(CartItem cartItem : shoppingCart.getCartItems()){
             itemRepository.deleteById(cartItem.getId());
         }
+        shoppingCart.setCustomer(null);
         shoppingCart.getCartItems().clear();
         shoppingCart.setTotalPrice(0);
         shoppingCart.setTotalItems(0);

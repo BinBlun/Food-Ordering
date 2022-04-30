@@ -23,10 +23,9 @@ public class CustomerDto {
     @Size(min = 3, max = 15, message = "Password contains 3-10 characters")
     private String password;
 
-    @Size(min = 10, max = 15, message = "Phone number contains 3-10 characters")
+    @Size(min = 10, max = 15, message = "Phone number contains 10-15 characters")
     private String phoneNumber;
 
-    @Size(min = 10, max = 50, message = "Invalid address")
     private String address;
     private String confirmPassword;
     private City city;

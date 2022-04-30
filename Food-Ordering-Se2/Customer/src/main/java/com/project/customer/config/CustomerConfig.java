@@ -42,7 +42,7 @@ public class CustomerConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/*").permitAll()
-                .antMatchers("/admin/*/*").hasAuthority("ADMIN")
+                .antMatchers("/customer/*/*").hasAuthority("CUSTOMER")
                 .and()
                 .formLogin()
                 .loginPage("/login")

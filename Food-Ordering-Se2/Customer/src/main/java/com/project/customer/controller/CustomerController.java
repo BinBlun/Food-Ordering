@@ -61,17 +61,19 @@ public class CustomerController {
         if (principal == null) {
             return "redirect:/login";
         } else {
+            String username = principal.getName();
+            CustomerDto customer = customerService.getCustomer(username);
+            List<Country> countryList = countryService.findAll();
+            List<City> cities = cityService.findAll();
+            model.addAttribute("countries", countryList);
+            model.addAttribute("cities", cities);
             if(result.hasErrors()){
                 return "customer-information";
             }
-            List<City> cities = cityService.findAll();
-            List<Country> countryList = countryService.findAll();
-            model.addAttribute("countries", countryList);
-            model.addAttribute("cities", cities);
             customerService.update(customerDto);
-            CustomerDto customer = customerService.getCustomer(principal.getName());
+            CustomerDto customerUpdate = customerService.getCustomer(principal.getName());
             attributes.addFlashAttribute("success", "Update successfully!");
-            model.addAttribute("customer", customer);
+            model.addAttribute("customer", customerUpdate);
             return "redirect:/profile";
         }
     }

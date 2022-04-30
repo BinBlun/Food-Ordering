@@ -1,12 +1,8 @@
 package com.project.customer.controller;
 
 import com.project.library.dto.CustomerDto;
-import com.project.library.model.Customer;
-import com.project.library.model.Order;
-import com.project.library.model.ShoppingCart;
-import com.project.library.service.CustomerService;
-import com.project.library.service.OrderService;
-import com.project.library.service.ShoppingCartService;
+import com.project.library.model.*;
+import com.project.library.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
@@ -28,6 +24,12 @@ public class OrderController {
     @Autowired
     private ShoppingCartService cartService;
 
+    @Autowired
+    private CountryService countryService;
+
+    @Autowired
+    private CityService cityService;
+
     @GetMapping("/check-out")
     public String checkOut(Principal principal, Model model) {
         if (principal == null) {
@@ -36,6 +38,13 @@ public class OrderController {
             CustomerDto customer = customerService.getCustomer(principal.getName());
             if (customer.getAddress() == null || customer.getCity() == null || customer.getPhoneNumber() == null) {
                 model.addAttribute("information", "You need update your information before check out");
+                List<Country> countryList = countryService.findAll();
+                List<City> cities = cityService.findAll();
+                model.addAttribute("customer", customer);
+                model.addAttribute("cities", cities);
+                model.addAttribute("countries", countryList);
+                model.addAttribute("title", "Profile");
+                model.addAttribute("page", "Profile");
                 return "customer-information";
             } else {
                 ShoppingCart cart = customerService.findByUsername(principal.getName()).getCart();
@@ -81,7 +90,7 @@ public class OrderController {
             Customer customer = customerService.findByUsername(principal.getName());
             ShoppingCart cart = customer.getCart();
             Order order = orderService.save(cart);
-            session.removeAttribute("totalItem");
+            session.removeAttribute("totalItems");
             model.addAttribute("order", order);
             model.addAttribute("title", "Order Detail");
             model.addAttribute("page", "Order Detail");

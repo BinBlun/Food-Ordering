@@ -18,12 +18,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category save(Category category) {
-        Category categorySave = null;
-        try {
-            categorySave = new Category(category.getName());
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+        Category categorySave = new Category(category.getName());
         return categoryRepository.save(categorySave);
 
     }

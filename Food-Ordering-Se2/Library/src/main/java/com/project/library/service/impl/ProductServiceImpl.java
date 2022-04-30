@@ -78,6 +78,7 @@ public class ProductServiceImpl implements ProductService {
                     productUpdate.setImage(Base64.getEncoder().encodeToString(imageProduct.getBytes()));
                 }
             }
+            productUpdate.setCategory(productDto.getCategory());
             productUpdate.setId(productUpdate.getId());
             productUpdate.setName(productDto.getName());
             productUpdate.setDescription(productDto.getDescription());

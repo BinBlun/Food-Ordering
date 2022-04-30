@@ -1,7 +1,7 @@
 
 e
-java:S4488J"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(×ò´ðûÿÿÿÿ
-a
-java:S1192+"FDefine a constant instead of duplicating this literal "title" 3 times.(€Þ†Äøÿÿÿÿ
+java:S4488S"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(×ò´ðûÿÿÿÿ
+\
+java:S1192."FDefine a constant instead of duplicating this literal "title" 4 times.(¨˜¿¿
 f
-java:S1192""PDefine a constant instead of duplicating this literal "redirect:/login" 3 times.(ØÆŠú
+java:S1192$"PDefine a constant instead of duplicating this literal "redirect:/login" 3 times.(ØÆŠú

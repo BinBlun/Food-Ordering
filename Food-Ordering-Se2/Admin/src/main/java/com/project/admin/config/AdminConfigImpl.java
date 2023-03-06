@@ -13,13 +13,13 @@ import java.util.stream.Collectors;
 
 public class AdminConfigImpl implements UserDetailsService {
     @Autowired
-    private AdminRepository adminRepository;
+    private AdminRepository repoAdmin ;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Admin admin = adminRepository.findByUsername(username);
+        Admin admin = repoAdmin.findByUsername(username);
         if(admin == null){
-            throw new UsernameNotFoundException("Could not find username");
+            throw new UsernameNotFoundException("No username was found");
         }
         return new User(
                 admin.getUsername(),

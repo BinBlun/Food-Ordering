@@ -4,7 +4,6 @@ import com.project.library.dto.CustomerDto;
 import com.project.library.model.*;
 import com.project.library.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -31,51 +30,51 @@ public class OrderController {
     private CityService cityService;
 
     @GetMapping("/check-out")
-    public String checkOut(Principal principal, Model model) {
-        if (principal == null) {
+    public String checkOut(Principal CheckoutPrincipal, Model Cartmodel) {
+        if (CheckoutPrincipal == null) {
             return "redirect:/login";
         } else {
-            CustomerDto customer = customerService.getCustomer(principal.getName());
+            CustomerDto customer = customerService.getCustomer(CheckoutPrincipal.getName());
             if (customer.getAddress() == null || customer.getCity() == null || customer.getPhoneNumber() == null) {
-                model.addAttribute("information", "You need update your information before check out");
-                List<Country> countryList = countryService.findAll();
+                Cartmodel.addAttribute("information", "Information required!");
+                List<Country> countries = countryService.findAll();
                 List<City> cities = cityService.findAll();
-                model.addAttribute("customer", customer);
-                model.addAttribute("cities", cities);
-                model.addAttribute("countries", countryList);
-                model.addAttribute("title", "Profile");
-                model.addAttribute("page", "Profile");
+                Cartmodel.addAttribute("customer", customer);
+                Cartmodel.addAttribute("cities", cities);
+                Cartmodel.addAttribute("countries", countries);
+                Cartmodel.addAttribute("title", "Profile");
+                Cartmodel.addAttribute("page", "Profile");
                 return "customer-information";
             } else {
-                ShoppingCart cart = customerService.findByUsername(principal.getName()).getCart();
-                model.addAttribute("customer", customer);
-                model.addAttribute("title", "Check-Out");
-                model.addAttribute("page", "Check-Out");
-                model.addAttribute("shoppingCart", cart);
-                model.addAttribute("grandTotal", cart.getTotalItems());
+                ShoppingCart cart = customerService.findByUsername(CheckoutPrincipal.getName()).getCart();
+                Cartmodel.addAttribute("customer", customer);
+                Cartmodel.addAttribute("title", "Check-Out");
+                Cartmodel.addAttribute("page", "Check-Out");
+                Cartmodel.addAttribute("shoppingCart", cart);
+                Cartmodel.addAttribute("grandTotal", cart.getTotalItems());
                 return "checkout";
             }
         }
     }
 
     @GetMapping("/orders")
-    public String getOrders(Model model, Principal principal) {
-        if (principal == null) {
+    public String getOrders(Model OrderModel, Principal OrderPrincipal) {
+        if (OrderPrincipal == null) {
             return "redirect:/login";
         } else {
-            Customer customer = customerService.findByUsername(principal.getName());
-            List<Order> orderList = customer.getOrders();
-            model.addAttribute("orders", orderList);
-            model.addAttribute("title", "Order");
-            model.addAttribute("page", "Order");
+            Customer customer = customerService.findByUsername(OrderPrincipal.getName());
+            List<Order> orders = customer.getOrders();
+            OrderModel.addAttribute("orders", orders);
+            OrderModel.addAttribute("title", "Order");
+            OrderModel.addAttribute("page", "Order");
             return "order";
         }
     }
 
     @RequestMapping(value = "/cancel-order", method = {RequestMethod.PUT, RequestMethod.GET})
-    public String cancelOrder(Long id, RedirectAttributes attributes){
-        orderService.cancelOrder(id);
-        attributes.addFlashAttribute("success", "Cancel order successfully!");
+    public String cancelOrder(Long OrderId, RedirectAttributes OrderAttributes){
+        orderService.cancelOrder(OrderId);
+        OrderAttributes.addFlashAttribute("success", "Cancel order successfully!");
         return "redirect:/orders";
     }
 

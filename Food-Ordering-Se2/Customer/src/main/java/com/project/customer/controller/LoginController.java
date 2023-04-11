@@ -17,7 +17,7 @@ public class LoginController {
     @Autowired
     private CustomerService customerService;
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model) {
@@ -38,32 +38,32 @@ public class LoginController {
 
     @PostMapping("/do-register")
     public String registerCustomer(@Valid @ModelAttribute("customerDto") CustomerDto customerDto,
-                                   BindingResult result,
-                                   Model model) {
+                                   BindingResult bindingResult,
+                                   Model customerModel) {
         try {
-            if (result.hasErrors()) {
-                model.addAttribute("customerDto", customerDto);
+            if (bindingResult.hasErrors()) {
+                customerModel.addAttribute("customerDto", customerDto);
                 return "register";
             }
             String username = customerDto.getUsername();
             Customer customer = customerService.findByUsername(username);
             if (customer != null) {
-                model.addAttribute("customerDto", customerDto);
-                model.addAttribute("error", "Email has been register!");
+                customerModel.addAttribute("customerDto", customerDto);
+                customerModel.addAttribute("error", "Email has been register!");
                 return "register";
             }
             if (customerDto.getPassword().equals(customerDto.getConfirmPassword())) {
-                customerDto.setPassword(passwordEncoder.encode(customerDto.getPassword()));
+                customerDto.setPassword(bCryptPasswordEncoder.encode(customerDto.getPassword()));
                 customerService.save(customerDto);
-                model.addAttribute("success", "Register successfully!");
+                customerModel.addAttribute("success", "Register successfully!");
             } else {
-                model.addAttribute("error", "Password is incorrect");
-                model.addAttribute("customerDto", customerDto);
+                customerModel.addAttribute("error", "Password is incorrect");
+                customerModel.addAttribute("customerDto", customerDto);
                 return "register";
             }
         } catch (Exception e) {
             e.printStackTrace();
-            model.addAttribute("error", "Server is error, try again later!");
+            customerModel.addAttribute("error", "Server is error, try again later!");
         }
         return "register";
     }

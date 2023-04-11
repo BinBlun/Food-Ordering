@@ -30,27 +30,44 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    <div class="dashboard-header d-flex align-items-center justify-content-between mb-4">
+                        <h1 class="dashboard-title h3 mb-0 text-gray-900">Dashboard</h1>
+                        <a href="#" class="dashboard-btn btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
+
 
                     <!-- Content Row -->
                     <div class="row">
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-container col-xl-4 col-md-6 col-sm-12 mb-4">
+                            <div class="card bg-primary text-white">
                                 <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="card-title text-uppercase text-white mb-2">Earnings (Monthly)</h6>
+                                            <h2 class="card-text font-weight-bold">$70,000</h2>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-calendar fa-2x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="card-container col-xl-4 col-md-6 col-sm-12 mb-4">
+                            <div class="card bg-success text-white">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="card-title text-uppercase text-white mb-2">Earnings (Annual)</h6>
+                                            <h2 class="card-text font-weight-bold">$350,000</h2>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-money-bill-wave fa-2x"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -58,61 +75,35 @@
                         </div>
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-container col-xl-4 col-md-6 col-sm-12 mb-4">
+                            <div class="card bg-light text-dark">
                                 <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h6 class="card-title text-uppercase mb-2">Tasks</h6>
+                                            <div class="progress mb-3">
+                                                <div class="progress-bar bg-info" role="progressbar" style="width: 60%"
+                                                     aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <i class="fas fa-tasks fa-2x"></i>
                                         </div>
                                     </div>
+                                    <p class="card-text">60% of tasks completed</p>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="col-xl-4 col-md-7 mb-5">
                             <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
+                                        <div class="col mr-3">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            <div class="h4 mb-1 font-weight-bold text-gray-700">25</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -126,29 +117,32 @@
                     <!-- Content Row -->
 
                     <div class="row">
-
+                        <!-- Earning Overview chart -->
                         <!-- Area Chart -->
-                        <div class="col-xl-8 col-lg-7">
-                            <div class="card shadow mb-4">
+                        <div class="col-xl-6 col-lg-5">
+                            <div class="card shadow mb-3">
                                 <!-- Card Header - Dropdown -->
-                                <div
-                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between bg-primary">
+                                    <h6 class="m-0 font-weight-bold text-white">Earnings Overview</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-white"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
-                                            aria-labelledby="dropdownMenuLink">
+                                             aria-labelledby="dropdownMenuLink">
                                             <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Dropdown item-1</a>
+                                            <a class="dropdown-item" href="#">Dropdown item-2</a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <a class="dropdown-item" href="#">Different item</a>
                                         </div>
                                     </div>
                                 </div>
+
+
+
+
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <div class="chart-area">
@@ -159,8 +153,8 @@
                         </div>
 
                         <!-- Pie Chart -->
-                        <div class="col-xl-4 col-lg-5">
-                            <div class="card shadow mb-4">
+                        <div class="col-xl-6 col-lg-5">
+                            <div class="card shadow mb-3">
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -173,27 +167,27 @@
                                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                             aria-labelledby="dropdownMenuLink">
                                             <div class="dropdown-header">Dropdown Header:</div>
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Dropdown item-1</a>
+                                            <a class="dropdown-item" href="#">Dropdown item-2</a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <a class="dropdown-item" href="#">Different item</a>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
+                                    <div class="chart-pie pt-5 pb-3">
                                         <canvas id="myPieChart"></canvas>
                                     </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
+                                    <div class="mt-5 text-center small">
+                                        <span class="mr-3">
+                                            <i class="fas fa-circle text-primary"></i> In-Store
                                         </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
+                                        <span class="mr-3">
+                                            <i class="fas fa-circle text-success"></i> Online
                                         </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
+                                        <span class="mr-3">
+                                            <i class="fas fa-circle text-info"></i> Shipping
                                         </span>
                                     </div>
                                 </div>
@@ -205,110 +199,102 @@
                     <div class="row">
 
                         <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-7 mb-5">
 
                             <!-- Project Card Example -->
-                            <div class="card shadow mb-4">
+                            <div class="card shadow mb-5">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
+                                    <h4 class="m-1 font-weight-bold text-primary">Projects</h4>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="small font-weight-bold">Server Migration <span
-                                            class="float-right">20%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
-                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Sales Tracking <span
-                                            class="float-right">40%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
-                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Customer Database <span
-                                            class="float-right">60%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 60%"
-                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Payout Details <span
-                                            class="float-right">80%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
-                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Account Setup <span
-                                            class="float-right">Complete!</span></h4>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
-                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
+                                    <ul class="list-group">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Server Migration
+                                            <span class="badge badge-danger badge-pill">20%</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Sales Tracking
+                                            <span class="badge badge-warning badge-pill">40%</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Customer Database
+                                            <span class="badge badge-primary badge-pill">60%</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Payout Details
+                                            <span class="badge badge-info badge-pill">80%</span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            Account Setup
+                                            <span class="badge badge-success badge-pill">Complete!</span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
 
                             <!-- Color System -->
                             <div class="row">
-                                <div class="col-lg-6 mb-4">
+                                <div class="col-lg-7 mb-5">
                                     <div class="card bg-primary text-white shadow">
                                         <div class="card-body">
                                             Primary
-                                            <div class="text-white-50 small">#4e73df</div>
+                                            <div class="text-white-80 small">#4e73df</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 mb-4">
+                                <div class="col-lg-7 mb-5">
                                     <div class="card bg-success text-white shadow">
                                         <div class="card-body">
                                             Success
-                                            <div class="text-white-50 small">#1cc88a</div>
+                                            <div class="text-white-80 small">#1cc88a</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 mb-4">
+                                <div class="col-lg-7 mb-5">
                                     <div class="card bg-info text-white shadow">
                                         <div class="card-body">
                                             Info
-                                            <div class="text-white-50 small">#36b9cc</div>
+                                            <div class="text-white-80 small">#36b9cc</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 mb-4">
+                                <div class="col-lg-7 mb-5">
                                     <div class="card bg-warning text-white shadow">
                                         <div class="card-body">
                                             Warning
-                                            <div class="text-white-50 small">#f6c23e</div>
+                                            <div class="text-white-80 small">#f6c23e</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 mb-4">
+                                <div class="col-lg-7 mb-5">
                                     <div class="card bg-danger text-white shadow">
                                         <div class="card-body">
                                             Danger
-                                            <div class="text-white-50 small">#e74a3b</div>
+                                            <div class="text-white-80 small">#e74a3b</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 mb-4">
+                                <div class="col-lg-7 mb-5">
                                     <div class="card bg-secondary text-white shadow">
                                         <div class="card-body">
                                             Secondary
-                                            <div class="text-white-50 small">#858796</div>
+                                            <div class="text-white-80 small">#858796</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 mb-4">
+                                <div class="col-lg-7 mb-5">
                                     <div class="card bg-light text-black shadow">
                                         <div class="card-body">
                                             Light
-                                            <div class="text-black-50 small">#f8f9fc</div>
+                                            <div class="text-black-80 small">#f8f9fc</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 mb-4">
+                                <div class="col-lg-7 mb-5">
                                     <div class="card bg-dark text-white shadow">
                                         <div class="card-body">
                                             Dark
-                                            <div class="text-white-50 small">#5a5c69</div>
+                                            <div class="text-white-80 small">#5a5c69</div>
                                         </div>
                                     </div>
                                 </div>
@@ -316,38 +302,64 @@
 
                         </div>
 
-                        <div class="col-lg-6 mb-4">
+                        <div class="col-lg-7 mb-5">
 
                             <!-- Illustrations -->
-                            <div class="card shadow mb-4">
+                            <div class="card shadow mb-5">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                                    <h4 class="m-1 font-weight-bold text-primary">Illustrations</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="text-center">
                                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="img/undraw_posting_photo.svg" alt="...">
+                                             src="img/undraw_posting_photo.svg" alt="Illustration of a person posting a photo">
                                     </div>
-                                    <p>Add some quality, svg illustrations to your project courtesy of <a
-                                            target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                        constantly updated collection of beautiful svg images that you can use
-                                        completely free and without attribution!</p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                                        unDraw &rarr;</a>
+                                    <p>Add some high-quality, vector illustrations to your project with <a target="_blank" rel="nofollow"
+                                                                                                           href="https://undraw.co/">unDraw</a> - a constantly updated collection of beautiful vector images that you
+                                        can use for free and without attribution!</p>
+                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on unDraw &rarr;</a>
                                 </div>
                             </div>
 
+
+
                             <!-- Approach -->
-                            <div class="card shadow mb-4">
+                            <div class="card bg-light shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
+                                    <h4 class="m-0 font-weight-bold text-dark">Development Approach</h4>
                                 </div>
                                 <div class="card-body">
-                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                        CSS bloat and poor page performance. Custom CSS classes are used to create
-                                        custom components and custom utility classes.</p>
-                                    <p class="mb-0">Before working with this theme, you should become familiar with the
-                                        Bootstrap framework, especially the utility classes.</p>
+                                    <p class="text-muted mb-4">We take a modern, agile approach to software development that emphasizes
+                                        collaboration, iterative development, and continuous improvement.</p>
+                                    <div class="row">
+                                        <div class="col-lg-6 mb-3">
+                                            <h6 class="mb-3 text-uppercase font-weight-bold">Collaboration</h6>
+                                            <p class="text-muted">Our teams work closely with clients to understand their needs and goals, and
+                                                we keep them involved throughout the development process to ensure that we're delivering
+                                                value at every step.</p>
+                                        </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <h6 class="mb-3 text-uppercase font-weight-bold">Iterative Development</h6>
+                                            <p class="text-muted">We use an iterative development process that allows us to quickly build and
+                                                test working software, get feedback from stakeholders, and refine our approach to
+                                                meet evolving needs.</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6 mb-3">
+                                            <h6 class="mb-3 text-uppercase font-weight-bold">Continuous Improvement</h6>
+                                            <p class="text-muted">We're always looking for ways to improve our processes, tools, and
+                                                techniques, and we encourage our teams to experiment and innovate to find new and better
+                                                ways of working.</p>
+                                        </div>
+                                        <div class="col-lg-6 mb-3">
+                                            <h6 class="mb-3 text-uppercase font-weight-bold">Open Communication</h6>
+                                            <p class="text-muted">We believe that open communication is the key to successful collaboration
+                                                and development. Our teams communicate frequently and openly with clients, stakeholders,
+                                                and each other to ensure that everyone is on the same page and that we're delivering
+                                                high-quality software that meets our clients' needs.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 

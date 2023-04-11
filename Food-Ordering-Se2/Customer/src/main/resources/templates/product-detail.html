@@ -35,8 +35,8 @@
 <div class="shop-detail-box-main">
     <div class="container">
         <div class="row">
-            <div class="col-xl-5 col-lg-5 col-md-6">
-                <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
+            <div class="col-xl-7 col-lg-7 col-md-5">
+                <div id="carousel-example-2" class="single-product-slider carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
                             <img class="d-block w-100" th:src="*{'data:image/jpeg;base64,' + {productDetail.image}}"
@@ -44,18 +44,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-7 col-lg-7 col-md-6">
+            <div class="col-xl-9 col-lg-9 col-md-8">
                 <form th:action="@{/add-to-cart}" method="post">
-                    <div class="single-product-details">
-                        <h2 th:text="${productDetail.name}"></h2>
-                        <h5 th:text="'$' + ${productDetail.costPrice}"></h5>
-                        <h4>Short Description:</h4>
-                        <p th:text="${productDetail.description}"></p>
-                        <div class="price-box-bar">
-                            <div class="cart-and-bay-btn">
-                                <input type="hidden" th:value="${productDetail.id}" name="id" class="form-control">
-                                <input type="submit" class="btn hvr-hover" value="Add to cart">
-                            </div>
+                    <div class="product-details-container">
+                        <h2 class="product-name" th:text="${productDetail.name}"></h2>
+                        <h3 class="product-price" th:text="'$' + ${productDetail.costPrice}"></h3>
+                        <h4 class="product-description-title">Short Description:</h4>
+                        <p class="product-description" th:text="${productDetail.description}"></p>
+                        <div class="add-to-cart-container">
+                            <input type="hidden" th:value="${productDetail.id}" name="id" class="form-control">
+                            <button type="submit" class="btn add-to-cart-btn hvr-hover">Add to Cart</button>
                         </div>
                     </div>
                 </form>
@@ -63,35 +61,28 @@
         </div>
     </div>
 
-    <div class="row my-5">
+    <div class="row my-6">
         <div class="col-lg-12">
-            <div class="title-all text-center">
-                <h1>Related Products</h1>
+            <div class="title-all text-center mb-5">
+                <h2>Related Products</h2>
             </div>
-            <div class="featured-products-box owl-carousel owl-theme">
-                <div class="item" th:each="product : ${products}">
-                    <form th:action="@{/add-to-cart}" method="post">
-                        <div class="products-single fix">
-                            <div class="box-img-hover">
-                                <img th:src="*{'data:image/jpeg;base64,' + {product.image}}" class="img-fluid"
-                                     alt="Image">
-                                <div class="mask-icon">
-                                    <ul>
-                                        <li><a th:href="@{/product-detail/{id}(id = ${product.id})}"
-                                               data-toggle="tooltip"
-                                               data-placement="right"
-                                               title="View"><i class="fas fa-eye"></i></a></li>
-                                    </ul>
-                                    <input type="hidden" th:value="${product.id}" name="id" class="form-control">
-                                    <input type="submit" class="btn hvr-hover" value="Add to cart">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="owl-carousel owl-theme">
+                        <div class="item" th:each="product : ${products}">
+                            <div class="card border-0 rounded-0">
+                                <img src="*{'data:image/jpeg;base64,' + {product.image}}" class="card-img-top" alt="Product Image">
+                                <div class="card-body">
+                                    <h5 class="card-title mb-1" th:text="${product.name}"></h5>
+                                    <h6 class="card-subtitle mb-2 text-muted" th:text="'$' + ${product.costPrice}"></h6>
+                                    <form th:action="@{/add-to-cart}" method="post">
+                                        <input type="hidden" th:value="${product.id}" name="id" class="form-control">
+                                        <button type="submit" class="btn btn-primary btn-block">Add to cart</button>
+                                    </form>
                                 </div>
                             </div>
-                            <div class="why-text">
-                                <h4 th:text="${product.name}"></h4>
-                                <h5 th:text="'$' + ${product.costPrice}"></h5>
-                            </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

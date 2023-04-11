@@ -23,66 +23,66 @@ public class ProductController {
     private CategoryService categoryService;
 
     @GetMapping("/menu")
-    public String menu(Model model){
-        model.addAttribute("page", "Products");
-        model.addAttribute("title", "Menu");
-        List<Category> categories = categoryService.findAllByActivatedTrue();
-        List<ProductDto> products = productService.products();
-        model.addAttribute("products", products);
-        model.addAttribute("categories", categories);
+    public String menu(Model productModel){
+        productModel.addAttribute("page", "Products");
+        productModel.addAttribute("title", "Menu");
+        List<Category> categoriesList = categoryService.findAllByActivatedTrue();
+        List<ProductDto> productsList = productService.products();
+        productModel.addAttribute("products", productsList);
+        productModel.addAttribute("categories", categoriesList);
         return "index";
     }
 
 
     @GetMapping("/product-detail/{id}")
-    public String details(@PathVariable("id")Long id, Model model){
-        ProductDto product = productService.getById(id);
-        List<ProductDto> productDtoList = productService.findAllByCategory(product.getCategory().getName());
-        model.addAttribute("products", productDtoList);
-        model.addAttribute("title", "Product Detail");
-        model.addAttribute("page", "Product Detail");
-        model.addAttribute("productDetail", product);
+    public String details(@PathVariable("id")Long id, Model productModel){
+        ProductDto productDto = productService.getById(id);
+        List<ProductDto> productDtoList = productService.findAllByCategory(productDto.getCategory().getName());
+        productModel.addAttribute("products", productDtoList);
+        productModel.addAttribute("title", "Product Detail");
+        productModel.addAttribute("page", "Product Detail");
+        productModel.addAttribute("productDetail", productDto);
         return "product-detail";
     }
 
     @GetMapping("/shop-detail")
-    public String shopDetail(Model model){
-        List<CategoryDto> categories = categoryService.getCategoriesAndSize();
-        model.addAttribute("categories", categories);
-        List<ProductDto> products = productService.randomProduct();
+    public String shopDetail(Model productModel){
+        List<CategoryDto> categoriesDtos = categoryService.getCategoriesAndSize();
+        productModel.addAttribute("categories", categoriesDtos);
+        List<ProductDto> productsList = productService.randomProduct();
         List<ProductDto> listView = productService.listViewProducts();
-        model.addAttribute("productViews", listView);
-        model.addAttribute("title", "Shop Detail");
-        model.addAttribute("page", "Shop Detail");
-        model.addAttribute("products", products);
+        productModel.addAttribute("productViews", listView);
+        productModel.addAttribute("title", "Shop Detail");
+        productModel.addAttribute("page", "Shop Detail");
+        productModel.addAttribute("products", productsList);
         return "shop-detail";
     }
 
 
     @GetMapping("/high-price")
     public String filterHighPrice(Model model){
-        List<CategoryDto> categories = categoryService.getCategoriesAndSize();
-        model.addAttribute("categories", categories);
-        List<ProductDto> products = productService.filterHighProducts();
+        List<CategoryDto> categoriesDtos = categoryService.getCategoriesAndSize();
+        model.addAttribute("categories", categoriesDtos);
+        List<ProductDto> productsList = productService.filterHighProducts();
         List<ProductDto> listView = productService.listViewProducts();
         model.addAttribute("title", "Shop Detail");
         model.addAttribute("page", "Shop Detail");
         model.addAttribute("productViews", listView);
-        model.addAttribute("products", products);
+        model.addAttribute("products", productsList);
         return "shop-detail";
     }
 
 
     @GetMapping("/lower-price")
     public String filterLowerPrice(Model model){
-        List<CategoryDto> categories = categoryService.getCategoriesAndSize();
-        model.addAttribute("categories", categories);
-        List<ProductDto> products = productService.filterLowerProducts();
+        List<CategoryDto> categoriesDtos = categoryService.getCategoriesAndSize();
+        model.addAttribute("categories", categoriesDtos);
+        List<ProductDto> productsList = productService.filterLowerProducts();
         List<ProductDto> listView = productService.listViewProducts();
         model.addAttribute("productViews", listView);
         model.addAttribute("title", "Shop Detail");
         model.addAttribute("page", "Shop Detail");
-        model.addAttribute("products", products);
+        model.addAttribute("products", productsList);
         return "shop-detail";
     }
 

@@ -25,21 +25,21 @@ public class ShoppingCartController {
     private CustomerService customerService;
 
     @GetMapping("/cart")
-    public String cart(Model model, Principal principal) {
-        if (principal == null) {
+    public String cart(Model cartModel, Principal cartPrincipal) {
+        if (cartPrincipal == null) {
             return "redirect:/login";
         } else {
-            Customer customer = customerService.findByUsername(principal.getName());
+            Customer customer = customerService.findByUsername(cartPrincipal.getName());
             ShoppingCart cart = customer.getCart();
             if(cart == null){
-                model.addAttribute("check" );
+                cartModel.addAttribute("check" );
 
             }
             if(cart != null){
-                model.addAttribute("grandTotal", cart.getTotalPrice());
+                cartModel.addAttribute("grandTotal", cart.getTotalPrice());
             }
-            model.addAttribute("shoppingCart", cart);
-            model.addAttribute("title", "Cart");
+            cartModel.addAttribute("shoppingCart", cart);
+            cartModel.addAttribute("title", "Cart");
             return "cart";
         }
 

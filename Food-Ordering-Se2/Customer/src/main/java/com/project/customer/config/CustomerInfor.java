@@ -11,11 +11,11 @@ import java.util.Collection;
 import java.util.List;
 
 public class CustomerInfor implements UserDetails {
-    private Customer customer;
+    private Customer newCustomer;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-        for(Role role : customer.getRoles() ){
+        for(Role role : newCustomer.getRoles() ){
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
         return authorities;
@@ -23,12 +23,12 @@ public class CustomerInfor implements UserDetails {
 
     @Override
     public String getPassword() {
-        return customer.getPassword();
+        return newCustomer.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return customer.getUsername();
+        return newCustomer.getUsername();
     }
 
     @Override

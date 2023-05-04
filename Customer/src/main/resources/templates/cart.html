@@ -35,13 +35,13 @@
 <!-- End All Title Box -->
 
 <!-- Start Cart  -->
-<div class="cart-box-main">
+<div class="cart-model">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="table-main table-responsive">
+                <div class="table-parens responsive">
                     <p class="text-center" th:if="${check}"><i class="text-info font-weight-bold text-center"></i>
-                        You don't have any items in your cart</p>
+                       Don't have any item in your cart</p>
                     <table class="table" th:if="${grandTotal}">
                         <thead>
                         <tr>
@@ -61,10 +61,10 @@
                                          th:src="*{'data:image/jepg;base64,' + cartItem.product.image}" alt=""/>
                                 </a>
                             </td>
-                            <td class="name-pr">
+                            <td class="name-priter">
                                 <p th:text="${cartItem.product.name}"></p>
                             </td>
-                            <td class="price-pr">
+                            <td class="price-priter">
                                 <p th:text="'$' + ${cartItem.unitPrice}"></p>
                             </td>
                             <form th:action="@{/update-cart}" method="post">
@@ -74,13 +74,13 @@
                                            value="1" min="0" step="1"
                                            class="c-input-text qty text">
                                 </td>
-                                <td class="total-pr">
+                                <td class="total-priter">
                                     <p th:text="'$' + ${cartItem.unitPrice * cartItem.quantity}"></p>
                                 </td>
                                 <td>
                                     <button type="submit" name="action" value="update" title="Update"
                                             class="btn btn-primary">
-                                        Update
+                                        Edit
                                     </button>
                                     <button type="submit" name="action" value="delete" title="Update"
                                             class="btn btn-danger">

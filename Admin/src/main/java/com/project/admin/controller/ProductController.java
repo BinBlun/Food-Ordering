@@ -29,124 +29,125 @@ public class ProductController {
     @Autowired
     private CategoryService categoryService;
 
-
-    @GetMapping("/products")
-    public String products(Model model){
+    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    public String products(Model mod){
         List<ProductDto> products = productService.allProduct();
-        model.addAttribute("products", products);
-        model.addAttribute("size", products.size());
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(authentication == null || authentication instanceof AnonymousAuthenticationToken){
+        mod.addAttribute("products", products);
+        mod.addAttribute("size", products.size());
+        Authentication authen = SecurityContextHolder.getContext().getAuthentication();
+        if(authen == null || authen instanceof AnonymousAuthenticationToken){
             return "redirect:/login";
         }
         return "products";
     }
 
-    @GetMapping("/products/{pageNo}")
-    public String allProducts(@PathVariable("pageNo") int pageNo, Model model, Principal principal){
-        if(principal == null){
+    @RequestMapping(value = "/products/{pageNo}", method = RequestMethod.GET)
+    public String allProducts(@PathVariable("pageNo") int pageNo, Model mod, Principal prin){
+        if(prin == null){
             return "redirect:/login";
         }
         Page<ProductDto> products = productService.getAllProducts(pageNo);
-        model.addAttribute("title", "Manage Products");
-        model.addAttribute("size", products.getSize());
-        model.addAttribute("products", products);
-        model.addAttribute("currentPage", pageNo);
-        model.addAttribute("totalPages", products.getTotalPages());
+        mod.addAttribute("title", "Manage Products");
+        mod.addAttribute("size", products.getSize());
+        mod.addAttribute("products", products);
+        mod.addAttribute("currentPage", pageNo);
+        mod.addAttribute("totalPages", products.getTotalPages());
         return "products";
     }
 
-    @GetMapping("/search-products/{pageNo}")
+
+    @RequestMapping(value = "/search-products/{pageNo}", method = RequestMethod.GET)
     public String searchProduct(@PathVariable("pageNo") int pageNo,
-                                @RequestParam(value = "keyword")String keyword,
-                                Model model
+                                @RequestParam(value = "keyword")String mainword,
+                                Model mod
                                 ){
-        Page<ProductDto> products = productService.searchProducts(pageNo, keyword);
-        model.addAttribute("title", "Result Search Products");
-        model.addAttribute("size", products.getSize());
-        model.addAttribute("products", products);
-        model.addAttribute("currentPage", pageNo);
-        model.addAttribute("totalPages", products.getTotalPages());
+        Page<ProductDto> products = productService.searchProducts(pageNo, mainword);
+        mod.addAttribute("title", "Result Search Products");
+        mod.addAttribute("size", products.getSize());
+        mod.addAttribute("products", products);
+        mod.addAttribute("currentPage", pageNo);
+        mod.addAttribute("totalPages", products.getTotalPages());
         return "product-result";
 
     }
 
-    @GetMapping("/add-product")
-    public String addProductPage(Model model){
-        model.addAttribute("title", "Add Product");
+    @RequestMapping(value = "/add-product", method = RequestMethod.GET)
+    public String addProductPage(Model mod){
+        mod.addAttribute("title", "Add Product");
         List<Category> categories = categoryService.findAllByActivatedTrue();
-        model.addAttribute("categories", categories);
-        model.addAttribute("productDto", new ProductDto());
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(authentication == null || authentication instanceof AnonymousAuthenticationToken){
+        mod.addAttribute("categories", categories);
+        mod.addAttribute("productDto", new ProductDto());
+        Authentication authen = SecurityContextHolder.getContext().getAuthentication();
+        if(authen == null || authen instanceof AnonymousAuthenticationToken){
             return "redirect:/login";
         }
         return "add-product";
     }
 
-    @PostMapping("/save-product")
+    @RequestMapping(value = "/save-product", method = RequestMethod.POST)
     public String saveProduct(@ModelAttribute("productDto")ProductDto product,
-                              @RequestParam("imageProduct") MultipartFile imageProduct,
-                              RedirectAttributes redirectAttributes){
+                              @RequestParam("imageProduct") MultipartFile image,
+                              RedirectAttributes redAtbute){
         try {
-            productService.save(imageProduct,product);
-            redirectAttributes.addFlashAttribute("success", "Add new product successfully!");
-        }catch (Exception e){
-            e.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Failed to add new product!");
+            productService.save(image,product);
+            redAtbute.addFlashAttribute("success", "Successfully!");
+        }catch (Exception exception){
+            exception.printStackTrace();
+            redAtbute.addFlashAttribute("error", "Failed, Please Try Again");
         }
         return "redirect:/products/0";
     }
 
-    @GetMapping("/update-product/{id}")
-    public String updateProductForm(@PathVariable("id")Long id,  Model model){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(authentication == null || authentication instanceof AnonymousAuthenticationToken){
+
+    @RequestMapping(value = "/update-product/{id}", method = RequestMethod.GET)
+    public String updateProductForm(@PathVariable("id")Long id,  Model mod){
+        Authentication authen = SecurityContextHolder.getContext().getAuthentication();
+        if(authen == null || authen instanceof AnonymousAuthenticationToken){
             return "redirect:/login";
         }
         List<Category> categories = categoryService.findAllByActivatedTrue();
         ProductDto productDto = productService.getById(id);
-        model.addAttribute("title", "Add Product");
-        model.addAttribute("categories", categories);
-        model.addAttribute("productDto", productDto);
+        mod.addAttribute("title", "Add Product");
+        mod.addAttribute("categories", categories);
+        mod.addAttribute("productDto", productDto);
         return "update-product";
     }
 
     @PostMapping("/update-product/{id}")
     public String updateProduct(@ModelAttribute("productDto")ProductDto productDto,
-                                @RequestParam("imageProduct") MultipartFile imageProduct,
-                                RedirectAttributes redirectAttributes){
+                                @RequestParam("imageProduct") MultipartFile image,
+                                RedirectAttributes redAtbute){
         try {
 
-            productService.update(imageProduct, productDto);
-            redirectAttributes.addFlashAttribute("success", "Update successfully!");
-        }catch (Exception e){
-            e.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Error server, please try again!");
+            productService.update(image, productDto);
+            redAtbute.addFlashAttribute("success", "Successfully!");
+        }catch (Exception exception){
+            exception.printStackTrace();
+            redAtbute.addFlashAttribute("error", "Error server, please try again!");
         }
         return "redirect:/products/0";
     }
 
     @RequestMapping(value = "/enable-product", method = {RequestMethod.PUT, RequestMethod.GET})
-    public String enabledProduct(Long id, RedirectAttributes redirectAttributes){
+    public String enabledProduct(Long id, RedirectAttributes redAtbute){
         try {
             productService.enableById(id);
-            redirectAttributes.addFlashAttribute("success", "Enabled successfully!");
-        }catch (Exception e){
-            e.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Enabled failed!");
+            redAtbute.addFlashAttribute("success", "Successfully!");
+        }catch (Exception exception){
+            exception.printStackTrace();
+            redAtbute.addFlashAttribute("error", "Failed!");
         }
         return "redirect:/products/0";
     }
 
     @RequestMapping(value = "/delete-product", method = {RequestMethod.PUT, RequestMethod.GET})
-    public String deletedProduct(Long id, RedirectAttributes redirectAttributes){
+    public String deletedProduct(Long id, RedirectAttributes redAtbute){
         try {
             productService.deleteById(id);
-            redirectAttributes.addFlashAttribute("success", "Deleted successfully!");
-        }catch (Exception e){
-            e.printStackTrace();
-            redirectAttributes.addFlashAttribute("error", "Deleted failed!");
+            redAtbute.addFlashAttribute("success", "Successfully!");
+        }catch (Exception exception){
+            exception.printStackTrace();
+            redAtbute.addFlashAttribute("error", "Failed!");
         }
         return "redirect:/products/0";
     }

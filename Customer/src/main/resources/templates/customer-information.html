@@ -48,10 +48,10 @@
 <div th:replace="fragments::all-title-box">
 </div>
 <!-- End All Title Box -->
-<div class="mainDiv">
-    <div class="cardStyle">
+<div class="customer-info-main">
+    <div class="card-container">
         <h2 class="formTitle">
-            <i>Personal Information</i>
+            <i>Your Information</i>
         </h2>
         <div th:if="${success}" class="text-center alert alert-success">
             <p th:text="${success}"></p>
@@ -114,7 +114,7 @@
                 </select>
             </div>
 
-            <div class="buttonWrapper">
+            <div class="btn-wrap">
                 <button type="submit" id="submitButton" class="submitButton pure-button pure-button-primary">
                     <span>Save</span>
                 </button>
@@ -125,7 +125,7 @@
         </form>
     </div>
 </div>
-<a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+<a href="#" id="back-to-top" title="Scroll to top" style="display: none;">&uarr;</a>
 <!-- Start copyright  -->
 <footer th:replace="fragments::footer"></footer>
 

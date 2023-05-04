@@ -32,7 +32,7 @@
 /*------------------------------------------------------------------
     SKELETON
 -------------------------------------------------------------------*/
-.cart-box-main{
+.cart-model{
     padding: 70px 0px;
 }
 .table{
@@ -41,19 +41,19 @@
     border-bottom: 1px solid black;
 }
 
-.table-main table thead{
+.table-parens table thead{
     background: #ec602e;
     color: #312a2a;
 }
-.table-main .table thead th{
-    font-size: 18px;
+.table-parens .table thead th{
+    font-size: 20px;
 }
-.table-main table td.thumbnail-img{
-    width: 120px;
+.table-parens table td.thumbnail-img{
+    width: 125px;
 }
-.table-main table td{
+.table-parens table td{
     vertical-align: middle;
-    font-size: 16px;
+    font-size: 15px;
 }
 .quantity-box input{
     width: 60px;
@@ -65,7 +65,7 @@
 .quantity-box input:focus{
     border-color: #b0b435;
 }
-.name-pr a{
+.name-priter a{
     font-weight: 700;
     font-size: 18px;
     color: #000000;
@@ -73,7 +73,7 @@
 .order-date{
     border-right: 1px solid #000000;
 }
-.price-pr{
+.price-priter{
     border-right: 1px solid #000000;
     border-left: 1px solid #000000;
 }
@@ -81,7 +81,7 @@
     border-right: 1px solid #000000;
     border-left: 1px solid #000000;
 }
-.total-pr{
+.total-priter{
     border-right: 1px solid #000000;
     border-left: 1px solid #000000;
 }
@@ -91,7 +91,7 @@
     width: 100%;
 }
 
-.mainDiv {
+.customer-info-main {
     display: flex;
     min-height: 100%;
     align-items: center;
@@ -99,7 +99,7 @@
     background-color: #f9f9f9;
     font-family: 'Open Sans', sans-serif;
 }
-.cardStyle {
+.card-container {
     width: 500px;
     border-color: white;
     background: #fff;
@@ -126,7 +126,7 @@
     margin-bottom: 6px;
     margin-top: 24px;
 }
-.inputDiv {
+.formTitle-input {
     width: 70%;
     display: flex;
     flex-direction: column;
@@ -144,11 +144,11 @@ input:disabled {
     cursor: not-allowed;
     border: solid 1px #eee;
 }
-.buttonWrapper {
+.btn-wrap {
     margin-top: 40px;
 }
 
-.buttonWrapper span {
+.btn-wrap span {
     Font-size: 20px;
     justify-content:center;
     align-items:center;
@@ -1168,16 +1168,16 @@ section .noi-dung .form .icon-dang-nhap li i{
      color: #999999;
      font-size: 16px;
 }
- .products-box{
+ .products-main{
      padding: 70px 0px;
 }
- .special-menu{
+ .specific-menu{
      margin-bottom: 40px;
 }
- .filter-button-group{
+ .filter-btn{
      display: inline-block;
 }
- .filter-button-group button{
+ .filter-btn button{
      background: #b0b435;
      color: #ffffff;
      border: none;
@@ -1185,21 +1185,21 @@ section .noi-dung .form .icon-dang-nhap li i{
      padding: 5px 30px;
      font-size: 18px;
 }
- .filter-button-group button.active{
+ .filter-btn button.active{
      background: #000000;
 }
- .filter-button-group button{
+ .filter-btn button{
 }
- .products-single {
+ .products-individual {
      overflow: hidden;
      position: relative;
      margin-bottom: 30px;
 }
- .products-single .box-img-hover{
+ .products-individual .images-hover{
      overflow: hidden;
      position: relative;
 }
- .box-img-hover img{
+ .images-hover img{
      margin: 0 auto;
      text-align: center;
      display: block;
@@ -1224,16 +1224,16 @@ section .noi-dung .form .icon-dang-nhap li i{
      font-weight: 700;
      text-transform: uppercase;
 }
- .why-text{
+ .reasonText{
      background: #f5f5f5;
      padding: 15px;
 }
- .why-text h4{
+ .reasonText h4{
      font-size: 16px;
      font-weight: 700;
      padding-bottom: 15px;
 }
- .why-text h5{
+ .reasonText h5{
      font-size: 18px;
      font-family: 'Poppins', sans-serif;
      padding: 4px;
@@ -1281,7 +1281,7 @@ section .noi-dung .form .icon-dang-nhap li i{
      background: #000000;
      color: #ffffff;
 }
- .products-single .mask-icon{
+ .products-individual .mask-icon{
      background: rgba(1,1,1, 0.5);
      top: -100%;
      -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -1293,7 +1293,7 @@ section .noi-dung .form .icon-dang-nhap li i{
      -ms-transition: all 0.3s ease-out 0.5s;
      transition: all 0.3s ease-out 0.5s;
 }
- .products-single:hover .mask-icon{
+ .products-individual:hover .mask-icon{
      -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
      filter: alpha(opacity=100);
      opacity: 1;
@@ -1508,8 +1508,9 @@ section .noi-dung .form .icon-dang-nhap li i{
  .main-instagram.owl-carousel .owl-nav button.owl-next:hover, .main-instagram.owl-carousel .owl-nav button.owl-prev:hover{
      background: #b0b435;
 }
- .ins-inner-box{
+ .box-relative{
      position: relative;
+     height: 200px;
 }
  .hov-in{
      opacity: 0;
@@ -1540,28 +1541,28 @@ section .noi-dung .form .icon-dang-nhap li i{
  .hov-in a i:hover{
      color: #ffffff;
 }
- .ins-inner-box:hover .hov-in{
+ .box-relative:hover .hov-in{
      bottom: 0;
      opacity: 1;
 }
 /*------------------------------------------------------------------ Footer Main -------------------------------------------------------------------*/
- .footer-main{
+ .footer-container{
      padding: 70px 15px;
      background: #010101;
      
 }
-.footer-main hr{
+.footer-container hr{
 	border-top: 1px solid rgba(255,255,255,.6);
 }
-.footer-top-box{
+.footer-bTop{
 	margin-bottom: 30px;
 }
-.footer-top-box h3{
+.footer-bTop h3{
 	color: #ffffff;
 	position: relative;
 	font-size: 20px;
 }
-.footer-top-box h3::before {
+.footer-bTop h3::before {
     border-bottom: 2px solid #b0b435;
     content: "";
     height: 3px;
@@ -1570,10 +1571,10 @@ section .noi-dung .form .icon-dang-nhap li i{
     bottom: 3px;
     left: 0px;
 }
-.list-time{
+.list-infoWeb{
 	margin-top: 15px;
 }
-.footer-top-box .list-time li{
+.footer-bTop .list-infoWeb li{
 	color: #ffffff;
 	font-size: 16px;
 	display: block;
@@ -1606,19 +1607,19 @@ section .noi-dung .form .icon-dang-nhap li i{
 	font-weight: 500;
 	
 }
- .footer-top-box p{
+ .footer-bTop p{
 	 padding-bottom: 15px;
 	 color: #cccccc;
  }
 
- .footer-top-box ul{
+ .footer-bTop ul{
      display: inline-block;
 }
- .footer-top-box ul li {
+ .footer-bTop ul li {
      float: left;
      margin-right: 5px;
 }
- .footer-top-box ul li a {
+ .footer-bTop ul li a {
      color: #ffffff;
      display: inline-block;
      width: 36px;
@@ -1627,7 +1628,7 @@ section .noi-dung .form .icon-dang-nhap li i{
      text-align: center;
      line-height: 32px;
 }
- .footer-top-box ul li a:hover {
+ .footer-bTop ul li a:hover {
      color: #b0b435;
      border-color: #b0b435;
 }
@@ -2246,19 +2247,19 @@ section .noi-dung .form .icon-dang-nhap li i{
      display: inline-block;
      vertical-align: middle;
 }
- .product-item-filter li .nav-link {
+ .product-item-filter li .link {
      border: none;
      border-radius: 0px;
      color: #111111;
      font-size: 18px;
      padding: 4px 12px;
 }
- .product-item-filter li .nav-link.active {
+ .product-item-filter li .link.active {
      background: #b0b435;
      border: none;
      color: #ffffff;
 }
- .product-item-filter li .nav-link:hover {
+ .product-item-filter li .link:hover {
      background: #000000;
      border: none;
      color: #ffffff;
@@ -2272,23 +2273,23 @@ section .noi-dung .form .icon-dang-nhap li i{
  .tab-content, .tab-pane{
      width: 100%;
 }
- .why-text.full-width h4 {
+ .reasonText.full-width h4 {
      font-size: 24px;
      font-weight: 700;
      padding-bottom: 15px;
 }
- .why-text.full-width h5 del{
+ .reasonText.full-width h5 del{
      font-size: 13px;
      color: #666;
 }
- .why-text.full-width h5{
+ .reasonText.full-width h5{
      color: #000000;
      font-weight: 700;
 }
- .why-text.full-width p{
+ .reasonText.full-width p{
      padding-bottom: 20px;
 }
- .why-text.full-width a{
+ .reasonText.full-width a{
      padding: 10px 20px;
      font-weight: 700;
      color: #ffffff;
@@ -2312,20 +2313,22 @@ section .noi-dung .form .icon-dang-nhap li i{
      -ms-animation: bounceY 0.9s linear;
      animation: bounceY 0.9s linear;
 }
- .cart-box-main{
+ .cart-model{
      padding: 70px 0px;
+     color: black;
+     font-family: Arial;
 }
- .table-main table thead{
+ .table-parens table thead{
      background: #b0b435;
      color: #ffffff;
 }
- .table-main .table thead th{
+ .table-parens .table thead th{
      font-size: 18px;
 }
- .table-main table td.thumbnail-img{
+ .table-parens table td.thumbnail-img{
      width: 120px;
 }
- .table-main table td{
+ .table-parens table td{
      vertical-align: middle;
      font-size: 16px;
 }
@@ -2337,7 +2340,7 @@ section .noi-dung .form .icon-dang-nhap li i{
  .quantity-box input:focus{
      border-color: #b0b435;
 }
- .name-pr a{
+ .name-priter a{
      font-weight: 700;
      font-size: 18px;
      color: #000000;
@@ -2355,7 +2358,7 @@ section .noi-dung .form .icon-dang-nhap li i{
  .coupon-box .input-group .form-control::-moz-placeholder{
      color: #b0b435;
 }
- .coupon-box .input-group .input-group-append .btn-theme {
+ .coupon-box .input-group .input-element .btn-theme {
      background: #b0b435;
      color: #ffffff;
      border: none;
@@ -2363,7 +2366,7 @@ section .noi-dung .form .icon-dang-nhap li i{
      font-size: 16px;
      padding: 0px 20px;
 }
- .coupon-box .input-group .input-group-append .btn-theme:hover {
+ .coupon-box .input-group .input-element .btn-theme:hover {
      background: #b0b435;
 }
  .update-box input[type="submit"]{
@@ -2641,17 +2644,17 @@ section .noi-dung .form .icon-dang-nhap li i{
  .services-box-main{
      padding: 70px 0px;
 }
- .contact-box-main{
+ .contactUs-container{
      padding: 70px 0px;
 }
- .contact-info-left{
+ .contactUs-information{
      padding: 20px;
      background: url(../images/contact-bg.jpg) no-repeat center;
 	 
      width: 400px;
      height: 350px;
 }
-.contact-info-left::before{
+.contactUs-information::before{
     background: rgba(185, 180, 180, 0.9);
     width: 400px;
     height: 350px;
@@ -2662,11 +2665,11 @@ section .noi-dung .form .icon-dang-nhap li i{
     position: absolute;
     z-index: 0;
 }
- .contact-info-left h2{
+ .contactUs-information h2{
      font-size: 22px;
      font-weight: 700;
 }
- .contact-info-left p{
+ .contactUs-information p{
      margin-bottom: 15px;
      font-size: 16px;
      color: #0a0101;
@@ -2677,7 +2680,7 @@ section .noi-dung .form .icon-dang-nhap li i{
      line-height: 24px;
      position: relative;
 }
- .contact-info-left ul li{
+ .contactUs-information ul li{
      margin-bottom: 12px;
      font-size: 16px;
      color: #0c0101;
@@ -2688,14 +2691,14 @@ section .noi-dung .form .icon-dang-nhap li i{
      position: relative;
 }
 
- .contact-info-left ul li p i{
+ .contactUs-information ul li p i{
      position: absolute;
      left: 0;
      top: 5px;
      padding-right: 6px;
      color: #b0b435;
 }
- .contact-info-left ul li p a:hover{
+ .contactUs-information ul li p a:hover{
      color: #b0b435;
 }
  .contact-form-right{
@@ -2708,18 +2711,18 @@ section .noi-dung .form .icon-dang-nhap li i{
  .contact-form-right p{
      margin-bottom: 15px;
 }
- .contact-form-right .form-group .form-control::-moz-placeholder{
+ .contact-form-right .form-element .form-control::-moz-placeholder{
      color: #999999;
 }
- .contact-form-right .form-group .form-control{
+ .contact-form-right .form-element .form-control{
      border-radius: 0px;
      min-height: 40px;
 }
- .contact-form-right .form-group {
+ .contact-form-right .form-element {
      margin-bottom: 30px;
      position: relative;
 }
- .contact-form-right .form-group .form-control:focus{
+ .contact-form-right .form-element .form-control:focus{
      border: 1px solid #b0b435;
      box-shadow: none;
 }
@@ -2883,7 +2886,7 @@ section .noi-dung .form .icon-dang-nhap li i{
  .featured-products-box .owl-nav button.owl-prev:hover, .featured-products-box .owl-nav button.owl-next:hover{
      background: #b0b435;
 }
- .table-responsive .table td, .table-responsive .table th {
+ .responsive .table td, .responsive .table th {
      vertical-align: middle;
      white-space: nowrap;
 }

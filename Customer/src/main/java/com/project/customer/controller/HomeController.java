@@ -16,27 +16,25 @@ import java.security.Principal;
 @Controller
 public class HomeController {
     @Autowired
-    private CustomerService customerService;
+    private CustomerService clientService;
 
-    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
-    public String home(Model model, Principal principal, HttpSession session){
+    @GetMapping(value = {"/", "/index"})
+    public String homepage(Model model, Principal princ, HttpSession sess){
         model.addAttribute("title", "Home");
-        model.addAttribute("page", "Home");
-        if(principal != null){
-            Customer customer = customerService.findByUsername(principal.getName());
-            session.setAttribute("username", customer.getFirstName() + " " + customer.getLastName());
-            ShoppingCart shoppingCart = customer.getCart();
-            if(shoppingCart != null){
-                session.setAttribute("totalItems", shoppingCart.getTotalItems() );
+        if(princ != null){
+            Customer customer = clientService.findByUsername(princ.getName());
+            sess.setAttribute("username", customer.getFirstName() + " " + customer.getLastName());
+            ShoppingCart cart = customer.getCart();
+            if(cart != null){
+                sess.setAttribute("totalItems", cart.getTotalItems() );
             }
         }
-        return "home";
+        return "homepage";
     }
 
-    @GetMapping("/contact")
+    @RequestMapping (value = {"/contact"}, method = RequestMethod.GET)
     public String contact(Model model){
         model.addAttribute("title", "Contact");
-        model.addAttribute("page", "Contact");
         return "contact-us";
     }
 

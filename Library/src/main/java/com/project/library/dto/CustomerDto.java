@@ -14,16 +14,16 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerDto {
-    @Size(min = 3, max = 10, message = "First name contains 3-10 characters")
+    @Size(min = 3, max = 10, message = "First name must be between 3 - 10 characters")
     private String firstName;
 
-    @Size(min = 3, max = 10, message = "Last name contains 3-10 characters")
+    @Size(min = 3, max = 10, message = "Last name must be between 3 - 10 characters")
     private String lastName;
     private String username;
-    @Size(min = 3, max = 15, message = "Password contains 3-10 characters")
+    @Size(min = 3, max = 15, message = "Password must be more than 8 characters")
     private String password;
 
-    @Size(min = 10, max = 15, message = "Phone number contains 10-15 characters")
+    @Size(min = 10, max = 15, message = "Invalid phone number. Phone number must have more than 8 digits")
     private String phoneNumber;
 
     private String address;

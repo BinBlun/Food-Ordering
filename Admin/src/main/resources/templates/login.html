@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en" xmlns:th = "https://www.thymeleaf.org/">
 
 <head th:replace="fragments :: header">
@@ -30,12 +30,12 @@
                                         You have been logged out!
                                     </div>
                                     <form class="user" th:action="@{/do-login}" method="post">
-                                        <div class="form-group">
+                                        <div class="form-element">
                                             <input type="email" name="username" class="form-control form-control-user"
                                                 id="username" aria-describedby="emailHelp"
                                                 placeholder="Enter Email Address...">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-element">
                                             <input type="password" name="password" id="password" class="form-control form-control-user"
                                                  placeholder="Password">
                                         </div>

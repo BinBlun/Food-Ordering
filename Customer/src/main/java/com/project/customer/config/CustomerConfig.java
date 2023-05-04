@@ -16,7 +16,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class CustomerConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public UserDetailsService userDetailsService() {
-        return new CustomerConfigImpl();
+        return new ClientConfigImpl();
     }
 
     @Bean

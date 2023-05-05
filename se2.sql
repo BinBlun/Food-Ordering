@@ -129,7 +129,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,_binary '',_binary '\0','Crab ',_binary '',_binary '\0'),(3,_binary '',_binary '\0','Appetizers',_binary '\0',_binary '\0'),(4,_binary '',_binary '\0','Fish',_binary '',_binary '\0'),(5,_binary '',_binary '\0','Lobster',_binary '\0',_binary '\0'),(6,_binary '',_binary '\0','Octopus',_binary '\0',_binary '\0'),(7,_binary '',_binary '\0','Shrimps',_binary '\0',_binary '\0');
+INSERT INTO `categories` VALUES (1,_binary '',_binary '\0','Fried Chicken ',_binary '',_binary '\0'),(3,_binary '',_binary '\0','Appetizers',_binary '\0',_binary '\0'),(4,_binary '',_binary '\0','Fish',_binary '',_binary '\0'),(5,_binary '',_binary '\0','Lobster',_binary '\0',_binary '\0'),(6,_binary '',_binary '\0','Octopus',_binary '\0',_binary '\0'),(7,_binary '',_binary '\0','Shrimps',_binary '\0',_binary '\0');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 

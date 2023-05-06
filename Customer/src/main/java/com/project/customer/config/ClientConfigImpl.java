@@ -17,7 +17,7 @@ public class ClientConfigImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String clientname) throws UsernameNotFoundException {
         Customer client = clientRepository.findByUsername(clientname);
-        if(client != null){
+        if(client == null){
             throw new UsernameNotFoundException("This clientname does not exist");
         }
 
